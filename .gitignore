@@ -4,3 +4,6 @@
 *.sqlite3
 *pyc
 __pycache__
+google-python-exercises
+dicas.txt
+.Procfile.swp
