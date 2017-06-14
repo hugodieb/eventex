@@ -1,0 +1,19 @@
+Olá! Tudo bem?
+
+Estes foram os dados que voçê nos forneceu
+em sua inscrição:
+
+Nome: {{ name }}
+CPF: {{ cpf }}
+Email: {{ email }}
+Telefone: {{ phone }}
+
+Em até 48 horas nossa equipe entrará
+ em conato com voçê para concluirmos
+ sua inscrição
+
+ Atenciosamente,
+
+ --
+
+ Equipe Eventex
