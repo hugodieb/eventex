@@ -4,13 +4,13 @@ from eventex.subscriptions.forms import SubscriptionForm
 
 
 class SubscribeTest(TestCase):
-	def setUp(self):		
+	def setUp(self):
 		self.response = self.client.get('/inscricao/')
-		
+
 	def test_get(self):
 		"""GET /inscricao/ must return status_code 200"""
 		self.assertEqual(200, self.response.status_code)
-	
+
 	def test_template(self):
 		"""Must use subscriptions/subscription_form.html"""
 		self.assertTemplateUsed(self.response, 'subscriptions/subscription_form.html')
@@ -55,6 +55,7 @@ class SubscribePostTest(TestCase):
 	def test_subscription_email_subject(self):
 		email = mail.outbox[0]
 		expect = 'Confirmação de inscrição'
+
 		"""Check description subject email"""
 		self.assertEqual(expect, email.subject)
 
@@ -78,4 +79,32 @@ class SubscribePostTest(TestCase):
 		self.assertIn('hugodieb.py@gmail.com', email.body)
 		self.assertIn('12-98868-1640', email.body)
 
+class SubscribeInvalidPost(TestCase):
+	def setUp(self):
+		self.response = self.client.post('/inscricao/', {})
 
+	def test_post(self):
+		"""Invalid POST should not redirect"""
+		self.assertEqual(200, self.response.status_code)
+
+	def test_template(self):
+		"""Must use subscriptions/subscription_form.html"""
+		self.assertTemplateUsed(self.response, 'subscriptions/subscription_form.html')
+
+	def test_has_form(self):
+		form = self.response.context['form']
+		"""Check context in form"""
+		self.assertIsInstance(form, SubscriptionForm)
+
+	def test_has_error(self):
+		form = self.response.context['form']
+		"""Check errors in form context"""
+		self.assertTrue(form, SubscriptionForm)
+
+class SubscribeSuccessMessage(TestCase):
+	def test_message(self):
+		data = dict(name='Hugo Dieb', cpf='12345678901',
+				email='hugo@dieb.net', phone='12-98867-1232')
+
+		response = self.client.post('/inscricao/', data, follow=True)
+		self.assertContains(response, 'Inscrição realizada com sucesso')
