@@ -8,9 +8,7 @@ CPF: {{ cpf }}
 Email: {{ email }}
 Telefone: {{ phone }}
 
-Em até 48 horas nossa equipe entrará
- em conato com voçê para concluirmos
- sua inscrição
+Em até 48 horas, nossa equipe entrará em contato com voçê para concluir sua inscrição.
 
  Atenciosamente,
 
