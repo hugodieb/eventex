@@ -2,6 +2,9 @@
 
 Sistema de Eventos
 
+[![Build Status](https://travis-ci.org/hugodieb/eventex.svg?branch=master)](https://travis-ci.org/hugodieb/eventex)
+
+
 ## Como desenvolver?
 
 1. Clone do repositório
