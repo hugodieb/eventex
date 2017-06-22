@@ -3,6 +3,7 @@
 Sistema de Eventos
 
 [![Build Status](https://travis-ci.org/hugodieb/eventex.svg?branch=master)](https://travis-ci.org/hugodieb/eventex)
+[![Code Health](https://landscape.io/github/hugodieb/eventex/master/landscape.svg?style=flat)](https://landscape.io/github/hugodieb/eventex/master)
 
 
 ## Como desenvolver?
