@@ -8,3 +8,4 @@ google-python-exercises
 dicas.txt
 .Procfile.swp
 staticfiles
+.ipynb_checkpoints/

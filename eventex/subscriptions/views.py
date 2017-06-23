@@ -22,7 +22,7 @@ def create(request):
 			   settings.DEFAULT_FROM_EMAIL,
 			   form.cleaned_data['email'],
 			   'subscriptions/subscription_email.txt',
-				form.cleaned_data)
+			   form.cleaned_data)
 
 	messages.success(request, 'Inscrição realizada com sucesso!')
 
