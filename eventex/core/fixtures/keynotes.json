@@ -1,0 +1,24 @@
+[
+{
+    "model": "core.speaker",
+    "pk": 1,
+    "fields": {
+        "name": "Grace Hopper",
+        "slug": "grace-hopper",
+        "photo": "http://hbn.link/hopper-pic",
+        "website": "http://hbn.link/hopper-site",
+        "description": "Curabitur facilisis lorem vitae ipsum vehicula semper. Phasellus ultrices convallis turpis, sit amet tincidunt purus vestibulum vitae. Mauris ultricies magna ex, id viverra velit pharetra id."
+    }
+},
+{
+    "model": "core.speaker",
+    "pk": 2,
+    "fields": {
+        "name": "Alan Turing",
+        "slug": "alan-turing",
+        "photo": "http://hbn.link/turing-pic",
+        "website": "http://hbn.link/turing-site",
+        "description": "Donec nec blandit eros, a semper enim. Nunc nec odio in eros aliquet sodales. Suspendisse sit amet mi sed ante condimentum volutpat eu a neque."
+    }
+}
+]

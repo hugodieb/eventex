@@ -51,7 +51,7 @@
             	<i class="fa fa-5x fa-globe"></i>
             	<h2>A Conferência</h2>
                 <p class="lead">A maior reunião de hackers do mundo.<br>Reunindo profissionais e entusiastas dos quatro <br>cantos do planeta, o <em>Eventex</em> é o lugar onde você precisa estar.</p>
-            	<p><a class="btn-basic btn-blue" data-scroll href="{% url 'home' %}#register">Garanta a sua vaga!</a></p>
+            	<p><a class="btn-basic btn-blue" data-scroll href="{% url 'home' %}#register">Garanta a sua vaga !</a></p>
             </div>
         </section>
 
@@ -61,7 +61,10 @@
                 {% for speaker in speakers %}
                 <div class="desktop-4">
                     <img src="{{ speaker.photo }}">
-                    <h4>{{ speaker.name }}</h4>
+                    <h4><a href="{{ speaker.get_absolute_url }}">
+                            {{ speaker.name }}
+                        </a>
+                    </h4>
                 </div>
                 {% endfor %}
             </div>
