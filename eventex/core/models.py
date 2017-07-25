@@ -1,9 +1,12 @@
 from django.db import models
 from django.shortcuts import resolve_url as r
 
+from eventex.core.manager import EmailContactManager, PhoneContactManager
+
+
 class Speaker(models.Model):
     name = models.CharField('nome', max_length=255)
-    slug = models.SlugField('slug')
+    slug= models.SlugField('slug')
     photo = models.URLField('foto')
     website = models.URLField('website', blank=True)
     description = models.TextField('descrição', blank=True)
@@ -31,6 +34,10 @@ class Contact(models.Model):
     speaker = models.ForeignKey('Speaker', verbose_name='palestrante')
     Kind = models.CharField('tipo', max_length=1, choices=KINDS)
     value = models.CharField('valor', max_length=255)
+
+    objects = models.Manager() # Now we must instantiate objects with manager
+    emails = EmailContactManager()
+    phones = PhoneContactManager()
 
     class Meta:
         verbose_name = 'contato'
