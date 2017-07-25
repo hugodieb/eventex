@@ -1,13 +1,19 @@
 from django.db import models
 
-class EmailContactManager(models.Manager):
-    def get_queryset(self):
-        qs = super().get_queryset()
-        qs = qs.filter(Kind=self.model.EMAIL)
-        return qs
+class KindQueryset(models.QuerySet):
+    def emails(self):
+        return self.filter(Kind=self.model.EMAIL)
 
-class PhoneContactManager(models.Manager):
+    def phones(self):
+        return  self.filter(Kind=self.model.PHONE)
+
+
+class KindContactManager(models.Manager):
     def get_queryset(self):
-        qs = super().get_queryset()
-        qs = qs.filter(Kind=self.model.PHONE)
-        return qs
+        return KindQueryset(self.model, using=self._db)
+
+    def emails(self):
+        return self.get_queryset().emails()
+
+    def phones(self):
+        return self.get_queryset().phones()
