@@ -373,4 +373,8 @@ section header h2 {
     padding: 0;
 }
 
+.speakers a {
+    text-decoration: none;
+}
+
 /* Fim Customização */
