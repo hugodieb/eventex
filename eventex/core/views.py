@@ -11,14 +11,8 @@ def speaker_detail(request, slug):
     return render(request, 'core/speaker_detail.html', {'speaker':speaker})
 
 def talk_list(request):
-    at_morning = list(Talk.objects.at_morning())
-    at_morning.sort(key=lambda o: o.start)
-
-    at_afternoon = list(Talk.objects.at_afternoon())
-    at_afternoon.sort(key=lambda o: o.start)
-
     context = {
-        'morning_talks': at_morning,
-        'afternoon_talks': at_afternoon,
+        'morning_talks': Talk.objects.at_morning(),
+        'afternoon_talks': Talk.objects.at_afternoon(),
     }
     return render(request, 'core/talk_list.html', context)
