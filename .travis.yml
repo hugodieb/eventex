@@ -11,7 +11,7 @@ install:
     - pip install -q -r requirements.txt
 
 before_ script:
-    - psql -c "CREATE DATABASE event_dev;"
+    - psql -c "CREATE DATABASE eventex_dev;"
     - psql -c "CREATE ROLE postgres WITH CREATEUSER PASSWORD 'postgres';"
     - psql -c "ALTER ROLE postgres CREATEDB;"
     - psql -c "GRANT ALL PRIVILEGES ON DATABASE eventex_dev TO postgres;"
