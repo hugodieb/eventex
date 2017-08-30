@@ -8,10 +8,11 @@ install:
 
 services:
     - postgresql
-s
+
 before_ script:
-    - psql -c "CREATE DATABASE eventex_dev;" -U eventex
-    - psql -c "CREATE USER eventex WITH CREATEUSER PASSWORD 'eventex';" -U eventex
+    - psql -c "CREATE DATABASE eventex_dev;"
+    - psql -c "CREATE USER eventex WITH CREATEUSER PASSWORD 'eventex';"
+    - psql -c "GRANT ALL PRIVILEGES ON DATABASE eventex_dev TO eventex;"
     - psql -c "ALTER USER eventex CREATEDB;"
 
 script:
