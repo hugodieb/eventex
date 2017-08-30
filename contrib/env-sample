@@ -2,11 +2,7 @@ SECRET_KEY=THIS_IS_NOT_A_GOOD_SECRET
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuapp.com
 
-DB_NAME=postgres
-DB_USER=postgres
-DB_PASSWORD=postgres
-DB_HOST=localhost
-DB_PORT=5432
+DB_URL=postgres://postgres:postgres@localhost/postgres
 
 #Configuração teste pelo console ambdev
 
