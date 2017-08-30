@@ -5,9 +5,13 @@ python:
 install:
     - cp contrib/env-sample .env
     - pip install -q -r requirements.txt
+
+services:
+    - postgresql
+s
 before_ script:
-    - psql -c "CREATE DATABASE eventex_dev;" -U postgres
-    - psql -c "CREATE USER eventex WITH CREATEUSER PASSWORD 'eventex';" -U postgres
+    - psql -c "CREATE DATABASE eventex_dev;" -U eventex
+    - psql -c "CREATE USER eventex WITH CREATEUSER PASSWORD 'eventex';" -U eventex
     - psql -c "ALTER USER eventex CREATEDB;"
 
 script:
