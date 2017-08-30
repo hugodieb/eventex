@@ -1,6 +1,7 @@
 SECRET_KEY=THIS_IS_NOT_A_GOOD_SECRET
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuapp.com
+DB_URL=postgres://eventex:eventex@localhost/eventex_dev
 
 #Configuração teste pelo console ambdev
 
