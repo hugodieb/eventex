@@ -1,0 +1,11 @@
+version: '2'
+services:
+    web:
+        build: . 
+        image: eventex
+        command: python manage.py runserver 0.0.0.0:8000
+        volumes:
+            - .:/app
+        ports:
+            - "8000:8000"
+        command: "/bin/sh -c 'while true; do sleep 60; done'"

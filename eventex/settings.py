@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = config('DEBU', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
@@ -83,11 +83,12 @@ WSGI_APPLICATION = 'eventex.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 #default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-#default_dburl='postgres://eventex:eventex@localhost/eventex_dev'
-default_dburl=config('DB_URL')
+#default_dburl='postgres://eventex:eventex@localhost/eventex_   dev'
+#default_dburl=config('DB_URL')
 
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    #'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    #'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 #    'default': {
 #        'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #        'NAME': config('DB_NAME'),
@@ -96,6 +97,14 @@ DATABASES = {
 #        'HOST': config('DB_HOST'),
 #        'PORT': config('DB_PORT'),
 #    }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DATABASE_NAME', 'eventex_dev'),
+        'USER': os.getenv('DATABASE_USER', 'eventex'),
+        'PASSWORD': os.getenv('DATABASE_PASS', 'ventex'),
+        'HOST': os.getenv('DATABASE_HOST', 'localhost'),
+        'PORT': os.getenv('DATABASE_PORT', 5432),
+    }
 }
 
 
@@ -118,8 +127,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# django vai copiar todos statics para dentro de staticfiles raiz projeto.
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# django vai copiar todos statics para dentro de static raiz projeto.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Email configurations
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
